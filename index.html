@@ -40,35 +40,36 @@ const axisHelper = new THREE.AxisHelper(100); //軸の長さ X：赤、Y：緑�
 scene.add(axisHelper);
 	 
 //顔
-const headGeometry = new THREE.BoxGeometry(1.5, 1, 1);
-const headMaterial = new THREE.MeshBasicMaterial({color: 0xff0000});
-const head = new THREE.Mesh(headGeometry, headMaterial);
+var headGeometry = new THREE.BoxGeometry(1.5, 1, 1);
+var headMaterial = new THREE.MeshPhongMaterial({color: 0xff0000});
+var head = new THREE.Mesh(headGeometry, headMaterial);
+head.position.set( 0, 0, -5 );
 scene.add(head);
 
 // 目の部分（球体）
-const eyeGeometry = new THREE.SphereGeometry(0.2, 32, 32);
-const eyeMaterial = new THREE.MeshBasicMaterial({color: 0x000000});
-const leftEye = new THREE.Mesh(eyeGeometry, eyeMaterial);
-const rightEye = new THREE.Mesh(eyeGeometry, eyeMaterial);
-leftEye.position.set(-0.5, 0.2, 0.5);
-rightEye.position.set(0.5, 0.2, 0.5);
+var eyeGeometry = new THREE.SphereGeometry(0.2, 32, 32);
+var eyeMaterial = new THREE.MeshPhongMaterial({color: 0x000000});
+var leftEye = new THREE.Mesh(eyeGeometry, eyeMaterial);
+var rightEye = new THREE.Mesh(eyeGeometry, eyeMaterial);
+leftEye.position.set(-0.5, 0.2, 4.5);
+rightEye.position.set(0.5, 0.2, 4.5);
 scene.add(leftEye);
 scene.add(rightEye);
 
 // 口の部分（小さな立方体）
-const mouthGeometry = new THREE.BoxGeometry(0.8, 0.3, 0.5);
-const mouthMaterial = new THREE.MeshBasicMaterial({color: 0x8b0000});
-const mouth = new THREE.Mesh(mouthGeometry, mouthMaterial);
-mouth.position.set(0, -0.5, 0.3);
+var mouthGeometry = new THREE.BoxGeometry(0.8, 0.3, 0.5);
+var mouthMaterial = new THREE.MeshphongMaterial({color: 0x8b0000});
+var mouth = new THREE.Mesh(mouthGeometry, mouthMaterial);
+mouth.position.set(0, -0.5, 4.7);
 scene.add(mouth);
 
 // 角（円柱）
-const hornGeometry = new THREE.CylinderGeometry(0.1, 0.1, 0.5, 32);
-const hornMaterial = new THREE.MeshBasicMaterial({color: 0xffff00});
-const leftHorn = new THREE.Mesh(hornGeometry, hornMaterial);
-const rightHorn = new THREE.Mesh(hornGeometry, hornMaterial);
-leftHorn.position.set(-0.7, 0.7, 0);
-rightHorn.position.set(0.7, 0.7, 0);
+var hornGeometry = new THREE.CylinderGeometry(0.1, 0.1, 0.5, 32);
+var hornMaterial = new THREE.MeshPhongMaterial({color: 0xffff00});
+var leftHorn = new THREE.Mesh(hornGeometry, hornMaterial);
+var rightHorn = new THREE.Mesh(hornGeometry, hornMaterial);
+leftHorn.position.set(-0.7, 0.7, -5);
+rightHorn.position.set(0.7, 0.7, -5);
 leftHorn.rotation.z = Math.PI / 4;
 rightHorn.rotation.z = -Math.PI / 4;
 scene.add(leftHorn);
