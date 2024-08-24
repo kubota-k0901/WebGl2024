@@ -44,7 +44,7 @@ var headGeometry = new THREE.BoxGeometry(1.5, 1, 1);
 var headMaterial = new THREE.MeshPhongMaterial({color: 0xff0000});
 var head = new THREE.Mesh(headGeometry, headMaterial);
 head.position.set( 0, 0, -5 );
-scene.add(head);
+//scene.add(head);
 
 // 目の部分（球体）
 var eyeGeometry = new THREE.SphereGeometry(0.2, 32, 32);
@@ -53,15 +53,15 @@ var leftEye = new THREE.Mesh(eyeGeometry, eyeMaterial);
 var rightEye = new THREE.Mesh(eyeGeometry, eyeMaterial);
 leftEye.position.set(-0.5, 0.2, 4.5);
 rightEye.position.set(0.5, 0.2, 4.5);
-scene.add(leftEye);
-scene.add(rightEye);
+//scene.add(leftEye);
+//scene.add(rightEye);
 
 // 口の部分（小さな立方体）
 var mouthGeometry = new THREE.BoxGeometry(0.8, 0.3, 0.5);
 var mouthMaterial = new THREE.MeshphongMaterial({color: 0x8b0000});
 var mouth = new THREE.Mesh(mouthGeometry, mouthMaterial);
 mouth.position.set(0, -0.5, 4.7);
-scene.add(mouth);
+//scene.add(mouth);
 
 // 角（円柱）
 var hornGeometry = new THREE.CylinderGeometry(0.1, 0.1, 0.5, 32);
@@ -72,20 +72,29 @@ leftHorn.position.set(-0.7, 0.7, -5);
 rightHorn.position.set(0.7, 0.7, -5);
 leftHorn.rotation.z = Math.PI / 4;
 rightHorn.rotation.z = -Math.PI / 4;
-scene.add(leftHorn);
-scene.add(rightHorn);
+//scene.add(leftHorn);
+//scene.add(rightHorn);
 
+//グループ化
+var group = new THREE.Group();
+group.add(head);
+group.add(lefteye);
+group.add(righteye);
+group.add(mouth);
+group.add(leftHorn);
+group.add(rightHorn);
   
 
 // 初回実行
 var update = function() {
 requestAnimationFrame(update);
-head.rotation.y += 0.01;
-leftEye.rotation.y += 0.01;
-rightEye.rotation.y += 0.01;
-mouth.rotation.y += 0.01;
-leftHorn.rotation.y += 0.01;
-rightHorn.rotation.y += 0.01;
+//head.rotation.y += 0.01;
+//leftEye.rotation.y += 0.01;
+//rightEye.rotation.y += 0.01;
+//mouth.rotation.y += 0.01;
+//leftHorn.rotation.y += 0.01;
+//rightHorn.rotation.y += 0.01;
+group.rotation.y += 0.01;
 renderer.render(scene, camera);
  };
  update();
