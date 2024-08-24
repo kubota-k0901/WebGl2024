@@ -85,6 +85,13 @@ group.add(leftHorn);
 group.add(rightHorn);
   
 
+//グループの軸
+var pivot = new THREE.Group();
+pivot.position.set(0, 0, -10);
+pivot.add( group );
+
+scene.add(pivot);
+
 // 初回実行
 var update = function() {
 requestAnimationFrame(update);
@@ -94,7 +101,7 @@ requestAnimationFrame(update);
 //mouth.rotation.y += 0.01;
 //leftHorn.rotation.y += 0.01;
 //rightHorn.rotation.y += 0.01;
-group.rotation.y += 0.01;
+pivot.rotation.y += 0.01;
 renderer.render(scene, camera);
  };
  update();
